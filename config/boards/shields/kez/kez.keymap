@@ -153,7 +153,7 @@
     &lt NAV Q   &kp W       &kp E             &kp R       &kp T       &kp Y      &kp U       &kp I       &kp O       &kp P
     &kp A       &hm LSHFT S &hm LALT D        &hm LCTRL F &kp G       &kp H      &hm RCTRL J &hm RALT K  &hm RSHFT L &hm RGUI SEMI
     &hm LSHFT Z &kp X       &kp C             &kp V       &kp B       &kp N      &kp M       &kp COMMA   &hm RSHFT DOT
-    &tdlctrl    &tdlalt     &lt NAV SPACE &bootloader &lt NUM_SYM RET &lt UD TAB &lt FUN FSLH
+    &tdlctrl    &tdlalt     &lt NUM_SYM SPACE &bootloader &lt NAV RET &lt UD TAB &lt FUN FSLH
             >;
 
             sensor-bindings = <&inc_dec_kp DEL BSPC>;
@@ -186,7 +186,7 @@
     &kp ESC  &kp TAB   &kp LS(TAB) &kp K_APP    &kp ESC &none    &kp LC(LEFT) &kp UP    &kp LC(RIGHT) &kp BSPC
     &kp LGUI &kp LSHFT &kp LALT    &kp LCTRL    &none   &none    &kp LEFT     &kp DOWN  &kp RIGHT     &hm RGUI DEL
     &mo BT   &none     &scroll_up  &scroll_down &none   &kp HOME &kp END      &kp PG_UP &kp PG_DN
-    &trans   &trans    &trans      &trans       &kp RET &trans   &trans
+    &trans   &trans    &trans      &trans       &trans  &trans   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
