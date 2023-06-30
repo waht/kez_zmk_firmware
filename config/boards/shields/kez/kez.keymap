@@ -66,6 +66,13 @@
             tapping-term-ms = <SHORT_TD_TIMEOUT>;
             bindings = <&hmf RALT K>;
         };*/
+
+        enc_scroll: encoder_scroll {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "ENC_SCROLL";
+            #sensor-binding-cells = <0>;
+            bindings = <&scroll_down>, <&scroll_up>;
+        };
     };
 };
 
@@ -192,7 +199,7 @@
     &trans   &trans    &trans      &trans       &trans  &trans   &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
+            sensor-bindings = <&enc_scroll>;
         };
 
         ud {
