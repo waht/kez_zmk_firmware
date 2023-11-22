@@ -12,6 +12,7 @@
 #define BT      5
 
 #define COMBO_TIMEOUT 20
+#define COMBO_IDLE 150
 #define LONG_COMBO_TIMEOUT 100
 #define TD_TIMEOUT 150
 #define SHORT_TD_TIMEOUT 120
@@ -29,8 +30,8 @@
             #binding-cells = <2>;
             tapping-term-ms = <TAP_TIMEOUT>;
             quick-tap-ms = <50>;
-            global-quick-tap;
-            flavor = "tap-preferred";
+            require-prior-idle-ms = <75>;
+            flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
 
@@ -39,7 +40,9 @@
             label = "homerow mods fast";
             #binding-cells = <2>;
             tapping-term-ms = <90>;
-            flavor = "tap-preferred";
+            quick-tap-ms = <50>;
+            require-prior-idle-ms = <75>;
+            flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
 
@@ -81,6 +84,7 @@
         compatible = "zmk,combos";
         combo_qw_tab {
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_IDLE>;
             key-positions = <0 1>;
             bindings = <&kp TAB>;
         };
@@ -94,39 +98,46 @@
 
         combo_io_del {
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_IDLE>;
             key-positions = <7 8>;
             bindings = <&kp LC(DEL)>;
         };
         combo_op_bspc {
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_IDLE>;
             key-positions = <8 9>;
             bindings = <&kp LC(BSPC)>;
         };
 
         combo_as_save {
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_IDLE>;
             key-positions = <10 11>;
             bindings = <&kp LC(S)>;
         };
 
         combo_lsemi_ret {
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_IDLE>;
             key-positions = <18 19>;
             bindings = <&kp RET>;
         };
 
         combo_zx_cut {
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_IDLE>;
             key-positions = <20 21>;
             bindings = <&kp LC(X)>;
         };
         combo_xc_copy {
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_IDLE>;
             key-positions = <21 22>;
             bindings = <&kp LC(C)>;
         };
         combo_cv_paste {
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_IDLE>;
             key-positions = <22 23>;
             bindings = <&kp LC(V)>;
         };
