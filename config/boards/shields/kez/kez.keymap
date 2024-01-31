@@ -17,6 +17,7 @@
 #define TD_TIMEOUT 150
 #define SHORT_TD_TIMEOUT 120
 #define TAP_TIMEOUT 150
+#define QUICK_TAP_MS 175
 
 &lt {
     tapping-term-ms = <TAP_TIMEOUT>;
@@ -44,6 +45,17 @@
             require-prior-idle-ms = <75>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
+        };
+
+        hmn: homerow_mods_nav {
+            compatible = "zmk,behavior-hold-tap";
+            label = "homerow mods nav";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <TAP_TIMEOUT>;
+            quick-tap-ms = <QUICK_TAP_MS>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-on-release;
         };
 
         tdlctrl: tap_dance_lctrl {
@@ -193,9 +205,9 @@
 
         fun {
             bindings = <
-    &trans &trans &trans &trans &none  &kp F1  &kp F2       &kp F3      &kp F4          &kp F5
-    &trans &trans &trans &trans &none  &kp F6  &hm RCTRL F7 &hm LALT F8 &hm RSHFT F9    &hm RGUI F10
-    &trans &trans &trans &trans &none  &kp F11 &kp F12      &kp PSCRN   &kp PAUSE_BREAK
+    &trans &trans &trans &trans &none    &kp F1  &kp F2       &kp F3      &kp F4          &kp F5
+    &trans &trans &trans &trans &none    &kp F6  &hm RCTRL F7 &hm LALT F8 &hm RSHFT F9    &hm RGUI F10
+    &trans &trans &trans &trans &kp INS  &kp F11 &kp F12      &kp PSCRN   &kp PAUSE_BREAK
     &trans &trans &trans &trans &trans &trans  &none
             >;
 
@@ -204,10 +216,10 @@
 
         nav {
             bindings = <
-    &kp ESC  &kp TAB   &kp LS(TAB) &kp K_APP    &kp ESC &none    &kp LC(LEFT) &kp UP    &kp LC(RIGHT) &kp BSPC
-    &kp LGUI &kp LSHFT &kp LALT    &kp LCTRL    &none   &none    &kp LEFT     &kp DOWN  &kp RIGHT     &hm RGUI DEL
-    &mo BT   &none     &scroll_up  &scroll_down &none   &kp HOME &kp END      &kp PG_UP &kp PG_DN
-    &trans   &trans    &trans      &trans       &trans  &trans   &trans
+    &kp ESC  &kp TAB            &kp LS(TAB) &kp K_APP    &kp ESC &none    &kp LC(LEFT) &kp UP    &kp LC(RIGHT) &kp BSPC
+    &kp LGUI &hmn LSHFT LS(TAB) &kp LALT    &kp LCTRL    &none   &none    &kp LEFT     &kp DOWN  &kp RIGHT     &hm RGUI DEL
+    &mo BT   &none              &scroll_up  &scroll_down &none   &kp HOME &kp END      &kp PG_UP &kp PG_DN
+    &trans   &trans             &trans      &trans       &trans  &trans   &trans
             >;
 
             sensor-bindings = <&enc_scroll>;
